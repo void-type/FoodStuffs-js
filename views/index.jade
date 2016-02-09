@@ -1,0 +1,39 @@
+extends layout
+
+block content
+    .row
+        .row-fluid
+            h2
+                span.pull-left
+                    | #{title}
+                span.pull-right(style="padding-right: 15px;")
+                    a(href="/create")
+                        span.glyphicon.glyphicon-plus(aria-hidden="true")
+    
+    .row
+        .row-fluid
+            span.pull-right(style="width: 365px; margin: 10px;")
+                form(name="input", method="get")
+                    input.search-bar(type="text", name="searchString")
+                    input.btn.btn-sm.btn-default(type="submit", value="Search")
+                    
+    table.table.alt-row-table
+        tr 
+            th Name
+            th Rating
+            th Tags
+            th 
+            
+        each recipe in recipes
+            tr
+                td #{recipe.Name}
+                td #{recipe.Rating}
+                td #{recipe.Tags}
+                td
+                    a(href="/edit/#{recipe.Id}")
+                        span.glyphicon.glyphicon-pencil.btn-space(aria-hidden="true")
+                    a(href="/delete/#{recipe.Id}")
+                        span.glyphicon.glyphicon-remove-circle.btn-space(aria-hidden="true")
+                    a(href="/print/#{recipe.Id}")
+                        span.glyphicon.glyphicon-print.btn-space(aria-hidden="true")
+                        

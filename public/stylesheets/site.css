@@ -1,0 +1,56 @@
+body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+.body-content {
+    padding-left: 15px;
+    padding-right:15px;
+}
+
+input,
+select,
+textarea {
+    max-width: 700px;
+}
+
+.search-bar {
+    width: 280px;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.428571429;
+    color: #555555;
+    vertical-align: middle;
+    background-color: #ffffff;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+    transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+}
+
+.alt-row-table {
+    margin-top: 15px;
+}
+
+.alt-row-table tr:nth-child(odd) {
+    background-color: #e5faff;
+}
+
+.alt-row-table tr:nth-child(1) {
+    background-color: #6dd1ff;
+}
+
+body.printable {
+    padding-top: 0;
+}
+
+.printable{
+    border: none;
+}
+
+.btn-space {
+    margin-left: 8px;
+}
