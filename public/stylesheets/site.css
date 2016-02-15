@@ -15,7 +15,7 @@ textarea {
 }
 
 .search-bar {
-    width: 280px;
+    max-width: 280px;
     height: 34px;
     padding: 6px 12px;
     font-size: 14px;
@@ -31,15 +31,7 @@ textarea {
     transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
 }
 
-.alt-row-table {
-    margin-top: 15px;
-}
-
-.alt-row-table tr:nth-child(odd) {
-    background-color: #e5faff;
-}
-
-.alt-row-table tr:nth-child(1) {
+table.bold-table-header tr:nth-child(1) {
     background-color: #6dd1ff;
 }
 
@@ -47,10 +39,11 @@ body.printable {
     padding-top: 0;
 }
 
-.printable{
-    border: none;
+pre.printable{
+    background: none;
+    color: #000000;
 }
 
-.btn-space {
-    margin-left: 8px;
+textarea.multiline {
+    height: 13em 
 }

@@ -1,0 +1,24 @@
+doctype html
+html
+    head
+        title= title
+        meta(charset='utf-8')
+        meta(name='viewport', content='width=device-width, initial-scale=1.0')
+        link(rel='stylesheet', href='/lib/bootstrap/dist/css/bootstrap.min.css')
+        link(rel='stylesheet', href='/stylesheets/bootstrap-theme.css')
+        link(rel='stylesheet', href='/stylesheets/site.css')
+
+    body.printable
+        .container
+            h2 #{recipe.Name}
+            hr 
+            br
+            h4
+                strong Ingredients
+            pre.printable #{recipe.Ingredients}
+            br
+            br
+            h4 
+                strong Instructions
+            pre.printable #{recipe.Instructions}
+        

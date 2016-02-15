@@ -1,39 +1,66 @@
 extends layout
 
 block content
-    .row
-        .row-fluid
-            h2
-                span.pull-left
-                    | #{title}
-                span.pull-right(style="padding-right: 15px;")
-                    a(href="/create")
-                        span.glyphicon.glyphicon-plus(aria-hidden="true")
-    
-    .row
-        .row-fluid
-            span.pull-right(style="width: 365px; margin: 10px;")
-                form(name="input", method="get")
-                    input.search-bar(type="text", name="searchString")
-                    input.btn.btn-sm.btn-default(type="submit", value="Search")
+    .container
+        h2
+            span(style="display: inline-block;") #{title}
+                
+            span.pull-right(style="display: inline-block;")
+                                       
+                form.form-inline(name="input" method="get")
+                    input.search-bar(type="text" placeholder="Search" name="searchString")
+
+    hr
+    .container
+        if nonemessage
+            h3.text-important #{nonemessage}
+        
+        else 
+            table.table.table-hover.table-bordered.table-striped.bold-table-header.fsindex
+                tr 
+                    th.col-lg-4.col-md-4.col-sm-5.col-xs-5 Name
+                    th.col-lg-1.col-md-1.col-sm-1.col-xs-1.text-center Rating
+                    th.col-lg-6.col-md-6.col-sm-5.col-xs-5 Tags
+                    th.col-lg-1.col-md-1.col-sm-1.col-xs-1.text-center 
+                        a(href="/create")
+                                span.glyphicon.glyphicon-plus(aria-hidden="true")
                     
-    table.table.alt-row-table
-        tr 
-            th Name
-            th Rating
-            th Tags
-            th 
-            
-        each recipe in recipes
-            tr
-                td #{recipe.Name}
-                td #{recipe.Rating}
-                td #{recipe.Tags}
-                td
-                    a(href="/edit/#{recipe.Id}")
-                        span.glyphicon.glyphicon-pencil.btn-space(aria-hidden="true")
-                    a(href="/delete/#{recipe.Id}")
-                        span.glyphicon.glyphicon-remove-circle.btn-space(aria-hidden="true")
-                    a(href="/print/#{recipe.Id}")
-                        span.glyphicon.glyphicon-print.btn-space(aria-hidden="true")
-                        
+                each recipe in recipes
+                    tr
+                        td(class=("printClick"+recipe._id) style="vertical-align:middle") #{recipe.Name}
+                        td.text-center(class=("printClick"+recipe._id) style="vertical-align:middle") #{recipe.Rating}
+                        td(class=("printClick"+recipe._id) style="vertical-align:middle") #{recipe.Tags}
+                        td.text-center(style="vertical-align:middle")
+                            .btn-group(role="group")
+                            
+                                button.btn.btn-info.btn-sm(id="editButton"+recipe._id)
+                                    span.glyphicon.glyphicon-edit(aria-hidden="true")
+                                
+                                button.btn.btn-danger.btn-sm(id="deleteButton"+recipe._id)
+                                    span.glyphicon.glyphicon-trash(aria-hidden="true")
+                           
+                        script.
+                            $('.printClick#{recipe._id}').click(function() {
+                                window.location = '/print/#{recipe._id}';
+                            });
+                            $('#deleteButton#{recipe._id}').click(function() {
+                                if(confirm("Are you sure you want to delete this?")) {
+                                    var form = $('<form name="delete" method="post" action="/delete/#{recipe._id}">' +
+                                    '<input type="submit"/>' +
+                                    '</form>');
+                                    $('body').append(form);
+                                    form.submit();
+                                }
+                            });
+                            $('#editButton#{recipe._id}').click(function() {
+                                var form = $('<form name="edit" method="get" action="/edit/#{recipe._id}">' +
+                                '<input type="submit"/>' +
+                                '</form>');
+                                $('body').append(form);
+                                form.submit();
+                            });
+
+
+//- we need to use jquery to make confirmation prompts, 
+//- send the post methods using glyphicons
+//- onclick of a table row, go to printout version, remove printout button

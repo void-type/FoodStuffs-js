@@ -19,12 +19,17 @@ html
                         span.icon-bar
                         span.icon-bar
                     a.navbar-brand(href='/') FoodStuffs
-                    .navbar-collapse.collapse
-                    //- put your li links to other pages/functions here
+                .navbar-collapse.collapse
+                    ul.nav.navbar-nav
+                        li  
+                            a(href="/create") New Recipe
+                        li
+                            a(href="/about") About
+                    
                         
     
     .container.body-content
-        
+            
         block content
         
         hr

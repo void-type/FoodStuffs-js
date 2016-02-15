@@ -1,0 +1,41 @@
+extends layout
+
+block content
+    div(style="padding-top: 30px; padding-bottom: 40px;")
+        h2
+            span.pull-left(style="display: inline-block;") 
+                | #{title}
+    hr
+                
+    form#form_create_recipe.form-horizontal(name="create-edit", method="post" action=submitRoute)
+        
+        .form-group
+            label.col-md-2.control-label(for="Name") Name
+            .col-md-10
+                input.form-control(type="text", name="Name" value=recipe.Name)
+                
+        .form-group
+            label.col-md-2.control-label(for="Ingredients") Ingredients
+            .col-md-10
+                textarea.form-control.multiline.text-box(type="text", name="Ingredients") #{recipe.Ingredients}
+
+        .form-group
+            label.col-md-2.control-label(for="Instructions") Instructions
+            .col-md-10
+                textarea.form-control.multiline.text-box(type="text", name="Instructions") #{recipe.Instructions}
+                
+        .form-group
+            label.col-md-2.control-label(for="Rating") Rating
+            .col-md-10
+                input.form-control(type="text", name="Rating" value=recipe.Rating)
+                
+        .form-group
+            label.col-md-2.control-label(for="Tags") Tags
+            .col-md-10
+                input.form-control(type="text", name="Tags" value=recipe.Tags)
+                
+        .form-group
+            .col-md-offset-2.col-md-10
+                input.btn.btn-default(type="submit" value="Save")
+        
+       //- need to add validation to controls //
