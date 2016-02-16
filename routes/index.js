@@ -8,13 +8,6 @@ var dbUrl = 'mongodb://localhost:27017/foodstuffs';
 var mongoClient = mongodb.MongoClient;
 
 
-
-/* Test Bootstrap UI */
-router.get('/r', function (req, res) {
-    res.render('testBootstrap');
-});
-
-
 /* GET home page. */
 router.get('/', function (req, res, next) {
 
