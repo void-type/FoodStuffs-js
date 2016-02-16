@@ -3,10 +3,10 @@ extends layout
 block content
     h2.container
         .row
-            .col-lg-8.col-md-8.col-sm-8.col-xs-6(style="vertical-align:top")
+            .col-lg-8.col-md-8.col-sm-8.col-xs-6
                  | #{title}
                 
-            .col-lg-4.col-md-4.col-sm-4.col-xs-6(style="vertical-align:top;")
+            .col-lg-4.col-md-4.col-sm-4.col-xs-6
                                         
                 form.form-inline(name="input" method="get")
                     input.search-bar(type="text" placeholder="Search" name="searchString")
@@ -17,7 +17,7 @@ block content
             h3.text-important #{nonemessage}
         
         else 
-            table.table.table-hover.table-bordered.table-striped.bold-table-header.fsindex
+            table.table.table-hover.table-bordered.table-striped.bold-table-header
                 tr 
                     th.col-lg-4.col-md-4.col-sm-5.col-xs-7 Name
                     th.col-lg-1.col-md-1.col-sm-1.col-xs-1.text-center Rating
