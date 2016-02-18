@@ -9,7 +9,7 @@ function Recipe(nm, ing, ins, rat, tags) {
     this.ModifiedOn = Date.now;
 
     var ratint = parseInt(rat);
-    if (ratint >= 0 && ratint <= 10 && ratint !== NaN) this.Rating = ratint || 0;
-};
+    if (ratint >= 0 && ratint <= 10 && !ratint.isNaN) this.Rating = ratint || 0;
+}
 
 module.exports = Recipe;

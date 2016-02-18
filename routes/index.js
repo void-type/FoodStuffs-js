@@ -167,7 +167,7 @@ router.get('/print/:id', function (req, res) {
                 if (err) {
                     console.log(err);
                 }
-                res.render('print-recipe', { recipe: result })
+                res.render('print-recipe', { recipe: result });
                 db.close();
             });
         }
