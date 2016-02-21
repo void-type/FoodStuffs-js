@@ -9,7 +9,7 @@ block content
             .col-lg-4.col-md-4.col-sm-4.col-xs-6
                                         
                 form.form-inline(name="input" method="get")
-                    input.search-bar(type="text" placeholder="Search" name="searchString")
+                    input.search-bar(type="text" placeholder="Search" name="search")
 
     hr
     .container
@@ -19,19 +19,19 @@ block content
         else 
             table.table.table-hover.table-bordered.table-striped.bold-table-header
                 tr 
-                    th.col-lg-4.col-md-4.col-sm-5.col-xs-7 Name
-                    th.col-lg-1.col-md-1.col-sm-1.col-xs-1.text-center Rating
-                    th.col-lg-6.col-md-5.col-sm-4.hidden-xs Tags
-                    th.col-lg-1.col-md-1.col-sm-2.col-xs-2.text-center 
-                        a(href="/create")
+                    th.col-lg-4.col-md-4.col-sm-5.col-xs-7.vertical-middle Name
+                    th.col-lg-1.col-md-1.col-sm-1.col-xs-1.text-center.vertical-middle Rating
+                    th.col-lg-6.col-md-5.col-sm-4.hidden-xs.vertical-middle Tags
+                    th.col-lg-1.col-md-1.col-sm-2.col-xs-2.text-center.vertical-middle
+                        button.btn.btn-success.btn-sm(id="createButton")
                                 span.glyphicon.glyphicon-plus(aria-hidden="true") 
                     
                 each recipe in recipes
                     tr
-                        td(class=("printClick"+recipe._id) style="vertical-align:middle") #{recipe.Name}
-                        td.text-center(class=("printClick"+recipe._id) style="vertical-align:middle") #{recipe.Rating}
-                        td.hidden-xs(class=("printClick"+recipe._id) style="vertical-align:middle") #{recipe.Tags}
-                        td.text-center(style="vertical-align:middle")
+                        td.vertical-middle(class=("printClick"+recipe._id)) #{recipe.Name}
+                        td.text-center.vertical-middle(class=("printClick"+recipe._id)) #{recipe.Rating}
+                        td.hidden-xs.vertical-middle(class=("printClick"+recipe._id)) #{recipe.Tags}
+                        td.text-center.vertical-middle
                             .btn-group(role="group")
                             
                                 button.btn.btn-success.btn-sm(id="editButton"+recipe._id)
@@ -45,6 +45,10 @@ block content
                             // On tablerow click, show the print friendly details view
                             $('.printClick#{recipe._id}').click(function() {
                                 window.location = '/print/#{recipe._id}';
+                            });
+                            
+                            $('#createButton').click(function() {
+                                window.location = '/create';
                             });
                             
                             // Send a post method to delete this particular recipe

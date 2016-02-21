@@ -21,6 +21,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use('/fonts/', express.static(path.join(__dirname, 'public/lib/bootstrap/fonts')));
+
 app.use('/', routes);
 app.use('/users', users);
 

@@ -45,5 +45,9 @@ pre.printable{
 }
 
 textarea.multiline {
-    height: 13em 
+    height: 13em;
+}
+
+.vertical-middle {
+    vertical-align:middle !important;
 }
